@@ -14,39 +14,40 @@
             overflow: hidden; /* Prevents video overflow */
             display: flex;
             flex-direction: column;
+            min-height: 100vh; /* Ensures full height */
         }
         /* Header styles */
         header {
             background-color: #333333;
-            padding: 10px 20px;
+            padding: 1.25vh 2.5vw; /* Responsive padding */
             display: flex;
             justify-content: space-between;
             align-items: center;
             color: #ffffff;
         }
         header img {
-            height: 50px; /* Adjust height as needed */
+            max-height: 5vh; /* Responsive image height */
             vertical-align: middle;
         }
         .navigation {
             background-color: #333333;
             text-align: center;
-            padding: 10px 0;
+            padding: 1.25vh 0; /* Responsive padding */
             display: flex;
             justify-content: center;
         }
         .navigation a {
             color: #ffffff;
             text-decoration: none;
-            margin: 0 10px;
+            margin: 0 2vw; /* Responsive margin */
         }
         /* Video styles */
         .video-container {
             position: fixed;
             right: 0;
             bottom: 0;
-            min-width: 100%;
-            min-height: 100%;
+            width: 100vw; /* Full width */
+            height: 100vh; /* Full height */
             z-index: -1;
             overflow: hidden; /* Ensures video doesn't overflow */
         }
@@ -65,31 +66,36 @@
         .container {
             width: 80%;
             margin: auto;
-            padding: 20px;
+            padding: 4vh 5vw; /* Responsive padding */
             position: relative; /* Ensure content overlays on video */
             z-index: 1;
             color: #ffffff;
         }
         h1 {
             text-align: center;
-            color: #ffffff;
+            font-size: 3.5vh; /* Responsive font size */
+            margin-bottom: 3vh; /* Responsive margin */
         }
         p {
-            margin: 20px 0;
+            font-size: 2vh; /* Responsive font size */
+            margin: 2vh 0; /* Responsive margin */
         }
 
         #bg {
             position: absolute;
-            width: 100%;
-            height: 100%;
+            width: 100vw; /* Full width */
+            height: 100vh; /* Full height */
             z-index: -1;
             background-color: black;
         }
 
         .footer {
-            margin-top: 600px;
+            margin-top: auto; /* Automatically adjusts margin */
             text-align: center;
             color: #ffffff;
+            padding: 2vh 0; /* Responsive padding */
+            position: relative;
+            bottom: 2vh; /* Adjusted distance from bottom */
         }
 
     </style>
@@ -106,15 +112,18 @@
         <div class="navigation">
             <a href="calendar.html">calendar</a>
             <a href="library.html">library</a>
+        </div>
     </header>
 
     <div class="container">
         <h1>We are raising the next generation of founders by building exceptional companies</h1>
         <p>We believe that everyone should be entrepreneurial. Why? Because our society can’t afford otherwise. However, this belief isn’t very original. It has been the same for 15 years, all the time that Aaltoes has existed. For context, around 2008, Finland’s economy was struggling and new innovation was more needed than ever. To have a place for ambitious and dedicated people with crazy ideas to come together, Aalto Entrepreneurship Society was born. Ever since, the people of Aaltoes have pushed the cruciality of solving world-changing problems through entrepreneurship in multiple programs and projects organized by driven students.</p>
-    <div>
-    <div class="footer">
-        <p> Puumiehenkuja 5 02150 OTANIEMI
-        <p> email: board@aaltoes.com</p>
     </div>
+    
+    <div class="footer">
+        <p>Puumiehenkuja 5 02150 OTANIEMI</p>
+        <p>email: board@aaltoes.com</p>
+    </div>
+
 </body>
 </html>
