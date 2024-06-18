@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Anonymous Pro', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            overflow: hidden; /* Prevents video overflow */
+            display: flex;
+            flex-direction: column;
+        }
+        /* Header styles */
+        header {
+            background-color: #333333;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #ffffff;
+        }
+        header img {
+            height: 50px; /* Adjust height as needed */
+            vertical-align: middle;
+        }
+        .navigation {
+            background-color: #333333;
+            text-align: center;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+        }
+        .navigation a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        /* Video styles */
+        .video-container {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+            overflow: hidden; /* Ensures video doesn't overflow */
+        }
+        .video-container video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+        }
+        /* Main content styles */
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            position: relative; /* Ensure content overlays on video */
+            z-index: 1;
+            color: #ffffff;
+        }
+        h1 {
+            text-align: center;
+            color: #ffffff;
+        }
+        p {
+            margin: 20px 0;
+        }
+
+        #bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: black;
+        }
+
+        .footer {
+            margin-top: 600px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="bg"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="ball.js"></script>
+    <header>
+        <div>
+            <img src="logo.png" alt="Aaltoes Logo">
+        </div>
+        <div class="navigation">
+            <a href="calendar.html">calendar</a>
+            <a href="library.html">library</a>
+    </header>
+
+    <div class="container">
+        <h1>We are raising the next generation of founders by building exceptional companies</h1>
+        <p>We believe that everyone should be entrepreneurial. Why? Because our society can’t afford otherwise. However, this belief isn’t very original. It has been the same for 15 years, all the time that Aaltoes has existed. For context, around 2008, Finland’s economy was struggling and new innovation was more needed than ever. To have a place for ambitious and dedicated people with crazy ideas to come together, Aalto Entrepreneurship Society was born. Ever since, the people of Aaltoes have pushed the cruciality of solving world-changing problems through entrepreneurship in multiple programs and projects organized by driven students.</p>
+    <div>
+    <div class="footer">
+        <p> Puumiehenkuja 5 02150 OTANIEMI
+        <p> email: board@aaltoes.com</p>
+    </div>
+</body>
+</html>

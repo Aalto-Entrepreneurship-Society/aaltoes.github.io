@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Sauna Events</title>
+    <style>
+        body {
+            font-family: 'Anonymous Pro', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #222;
+            color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: #333;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+        }
+        header img {
+            height: 50px;
+        }
+        .navigation {
+            background-color: #333;
+            text-align: center;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+        }
+        .navigation a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .events {
+            margin-bottom: 20px;
+        }
+        .events ul {
+            list-style: none;
+            padding: 0;
+        }
+        .events ul li {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            color: #000;
+        }
+        .calendar {
+            margin: 20px 0;
+        }
+        .calendar iframe {
+            width: 100%;
+            height: 1000px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="mainPage.html"><img src="logo.png" alt="Logo"></a>
+        <div class="navigation">
+            <a href="calendar.html">calendar</a>
+            <a href="library.html">library</a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="events">
+            <ul id="eventList"></ul>
+        </div>
+        <div class="calendar">
+            <iframe src="https://lu.ma/embed/calendar/cal-Dt7ZTA5Hc4gfnxp/events"></iframe>
+        </div>
+    </div>
+    <script>
+        async function fetchEvents() {
+            const response = await fetch('your-calendar-api-url');
+            const data = await response.json();
+            const eventList = document.getElementById('eventList');
+            data.events.forEach(event => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `<strong>${event.name}</strong><br>${event.date}<br>${event.description}`;
+                eventList.appendChild(listItem);
+            });
+        }
+        window.onload = fetchEvents;
+    </script>
+</body>
+</html>
