@@ -3,92 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Full Screen Video Background with Logo</title>
     <style>
-        body {
-            font-family: 'Montserrat', Arial, sans-serif;
-            line-height: 1.6;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #222222;
-            color: #ffffff;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: #fff;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            overflow-x: hidden; /* Estää vaakatasossa vierittämisen */
-        }
-        header {
-            padding: 10px 20px;
-            display: flex;
-            justify-content: flex-start; /* Aseta logo vasempaan reunaan */
             align-items: center;
-            color: #ffffff;
-            width: 100%;
-            box-sizing: border-box;
-            position: fixed;
+            justify-content: center;
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
             z-index: 10;
-            top: 0;
+            max-height: 50px;
         }
-        header img {
-            height: 40px;
-            vertical-align: middle;
-            margin-left: 20px; /* Lisää marginaali logoa varten */
-        }
+
         .video-container {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100vw; /* Koko näytön leveys */
-            height: 100vh; /* Koko näytön korkeus */
+            width: 100vw;
+            height: 100vh;
             overflow: hidden;
-            z-index: 1;
+            z-index: -1;
         }
 
         .video-container video {
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%; /* Täyttää video-containerin leveyden */
-            height: 100%; /* Täyttää video-containerin korkeuden */
-            object-fit: cover; /* Skaalaa video täyttämään tilan säilyttäen kuvasuhteen */
-            z-index: -1;
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
         }
 
+        .content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            margin-top: 50px;
+        }
+
+        button {
+            font-size: 1rem;
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        /*--------------------*/
+
+        .navigation {
+            margin-top: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .navigation a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 5px 0;
+            font-size: large;
+        }
         .main-content {
             display: flex;
             flex-direction: column;
             flex: 1;
+            margin-top: 130%;
             padding: 20px;
             box-sizing: border-box;
             align-items: center;
-            position: relative;
-            z-index: 2; /* Nostetaan päällekkäin muiden elementtien kanssa */
-            margin-top: 70px;
         }
         .container {
             width: 100%;
             background-color: rgba(0, 0, 0, 0.4);
             padding: 20px;
             box-sizing: border-box;
+            z-index: 1;
         }
-        .navigation {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-        }
-        .navigation a {
-            color: #ffffff;
-            text-decoration: none;
-            margin: 5px 0;
-        }
-        h1 {
-            margin-top: 20px;
-            font-size: 1.5rem;
+        .content {
+            width: 100%;
+            padding: 20px 0;
+            box-sizing: border-box;
             text-align: center;
         }
+
+        footer {
+            width: 100%;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+            padding: 10px 0;
+            z-index: 10;
+            bottom: -3;
+        }
+
         button {
             font-size: 1rem;
             border-radius: 25px;
@@ -97,7 +129,6 @@
             background-color: rgba(0, 0, 0, 0.4);
             border: none;
             cursor: pointer;
-            margin-top: 10px;
         }
         button:hover {
             background-color: rgba(0, 0, 0, 0.6);
@@ -125,26 +156,14 @@
                 margin-top: 90px;
             }
         }
-        @media (max-width: 600px) {
-            .video-container {
-                position: relative;
-                height: 70vh; /* Pienempi korkeus mobiililaitteilla, jotta muu sisältö ei peity */
-            }
-            .main-content {
-                margin-top: 0;
-            }
-            header {
-                position: static;
-            }
-        }
+
+    </style>
+        
     </style>
 </head>
 <body>
-    <header>
-        <div>
-            <a href="mainPage.html"><img src="logo.png" alt="Logo"></a>
-        </div>
-    </header>
+    <img class="logo" src="logo.png" alt="Logo">
+    
     <div class="video-container">
         <video autoplay muted loop>
             <source src="video.mp4" type="video/mp4">
@@ -168,22 +187,28 @@
             <a href="resources.html">resources</a>
             <a href="https://medium.com/@aaltoes">blog</a>
         </div>
+
+        <footer>
+            <div>Puumiehenkuja 5, 02150 OTANIEMI</div>
+            <div>board@aaltoes.com</div>
+        </footer>
+
+        <script>
+            function revealText() {
+                document.getElementById("paragraph").style.display = "block";
+                document.querySelector('.button2').style.display = 'none';
+                document.querySelector('.button3').style.display = 'inline-block';
+            }
+            function hideText() {
+                document.getElementById("paragraph").style.display = "none";
+                document.querySelector('.button3').style.display = 'none';
+                document.querySelector('.button2').style.display = 'inline-block';
+            }
+        </script>
+
+    
+
+    <div class="content">
     </div>
-    <footer>
-        <div>Puumiehenkuja 5, 02150 OTANIEMI</div>
-        <div>board@aaltoes.com</div>
-    </footer>
-    <script>
-        function revealText() {
-            document.getElementById("paragraph").style.display = "block";
-            document.querySelector('.button2').style.display = 'none';
-            document.querySelector('.button3').style.display = 'inline-block';
-        }
-        function hideText() {
-            document.getElementById("paragraph").style.display = "none";
-            document.querySelector('.button3').style.display = 'none';
-            document.querySelector('.button2').style.display = 'inline-block';
-        }
-    </script>
 </body>
 </html>
