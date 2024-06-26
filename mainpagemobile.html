@@ -62,7 +62,7 @@
         p {
             font-size: 1.2rem;
             margin-bottom: 30px;
-            margin-top: 50px;
+            margin-top: 100px;
         }
 
         button {
@@ -70,6 +70,15 @@
             padding: 10px 20px;
             border: none;
             background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        .button1 {
+            font-size: 2rem;
+            padding: 10px 20px;
+            border: none;
+            background-color: #333333;
             color: white;
             cursor: pointer;
         }
@@ -86,20 +95,20 @@
             color: #ffffff;
             text-decoration: none;
             margin: 5px 0;
-            font-size: large;
+            font-size: xx-large;
         }
         .main-content {
             display: flex;
             flex-direction: column;
             flex: 1;
-            margin-top: 130%;
+            margin-top: 120%;
             padding: 20px;
             box-sizing: border-box;
             align-items: center;
         }
         .container {
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
+            width: 100vw;
+            background-color: rgba(0, 0, 0, 0.8);
             padding: 20px;
             box-sizing: border-box;
             z-index: 1;
@@ -112,13 +121,15 @@
         }
 
         footer {
+            margin-top: 300px;
             width: 100%;
             text-align: center;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0);
             color: #ffffff;
             padding: 10px 0;
             z-index: 10;
             bottom: -3;
+            font-size: large;
         }
 
         button {
@@ -166,7 +177,7 @@
     
     <div class="video-container">
         <video autoplay muted loop>
-            <source src="video.mp4" type="video/mp4">
+            <source src="" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
