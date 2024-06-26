@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #222;
+            color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: #333;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+        }
+        header img {
+            height: 50px;
+        }
+        .navigation {
+            background-color: #333;
+            text-align: center;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+        }
+        .navigation a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .events {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 3vw 13vw;
+        }
+
+        .events img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <a href="mainPage.html"><img src="logo.png" alt="Logo"></a>
+        <div class="navigation">
+            <a href="events.html">events</a>
+            <a href="calendar.html">calendar</a>
+            <a href="resources.html">resources</a>
+            <a hred="https://medium.com/@aaltoes">blog</a>
+
+        </div>
+    </header>
+    <div class="container">
+        <div class="events">
+            <a href="https://www.getbetoni.com/"><img src="betoni.png" alt="betoni"></a>
+            <a href="https://www.aaltoes.com/artery"><img src="artery.png" alt="artery"></a>
+            <a href="https://www.striveforstartups.com/"><img src="strive.jpg" alt="strive"></a>
+            <a href=""><img src="wednesday.png" alt="wednesday"></a>
+            <a href=""><img src="tulva.png" alt="tulva"></a>
+            <a href=""><img src="Finnovate (1).png" alt="finnovate"></a>
+            <a href=""><img src="ignitemainlogo.png" alt="ignite"></a>
+        </div>
+</body>
+</html>

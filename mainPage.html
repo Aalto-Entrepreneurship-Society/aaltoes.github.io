@@ -3,53 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         body {
-            font-family: 'Anonymous Pro', Arial, sans-serif;
+            font-family: 'Montserrat', Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            overflow: hidden; /* Prevents video overflow */
+            background-color: #222222;
+            color: #ffffff;
+            min-height: 100vh; /* Ensure full screen height */
             display: flex;
-            flex-direction: column;
-            min-height: 100vh; /* Ensures full height */
+            flex-direction: column; /* Stack elements vertically */
         }
-        /* Header styles */
         header {
-            background-color: #333333;
-            padding: 1.25vh 2.5vw; /* Responsive padding */
+            padding: 10px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             color: #ffffff;
+            width: 100%; /* Ensures header spans full width */
+            box-sizing: border-box; /* Include padding in width */
+            position: fixed;
+            z-index: 10; /* Higher than other elements */
         }
         header img {
-            max-height: 5vh; /* Responsive image height */
+            height: 50px; /* Adjust height as needed */
             vertical-align: middle;
         }
         .navigation {
-            background-color: #333333;
-            text-align: center;
-            padding: 1.25vh 0; /* Responsive padding */
             display: flex;
             justify-content: center;
+            align-items: center;
         }
         .navigation a {
             color: #ffffff;
             text-decoration: none;
-            margin: 0 2vw; /* Responsive margin */
+            margin: 0 10px;
         }
-        /* Video styles */
+        .main-content {
+            display: flex;
+            flex: 1; /* Take remaining space */
+            position: relative;
+            z-index: 1; /* Places below other elements */
+        }
+        .container {
+            width: 27%;
+            min-height: 100%; /* Ensure container spans full height */
+            background-color: rgba(0, 0, 0, 0.4); /* 30% opacity */
+            box-sizing: border-box;
+            padding: 20px; /* Added padding for content spacing */
+            position: relative;
+            top: 0;
+            bottom: 0;
+            left: 0;
+        }
+        .content {
+            width: 80%;
+            padding: 20px; /* Added padding for content spacing */
+            position: relative;
+            overflow: hidden; /* Ensures video doesn't overflow */
+        }
         .video-container {
             position: fixed;
-            right: 0;
-            bottom: 0;
-            width: 100vw; /* Full width */
-            height: 100vh; /* Full height */
-            z-index: -1;
-            overflow: hidden; /* Ensures video doesn't overflow */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1; /* Places video behind content */
         }
         .video-container video {
             position: absolute;
@@ -60,70 +83,95 @@
             min-height: 100%;
             width: auto;
             height: auto;
-            z-index: -1;
         }
-        /* Main content styles */
-        .container {
-            width: 80%;
-            margin: auto;
-            padding: 4vh 5vw; /* Responsive padding */
-            position: relative; /* Ensure content overlays on video */
-            z-index: 1;
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0); /* 0% opacity */
             color: #ffffff;
+            padding: 10px 0;
+            z-index: 10; /* Higher than other elements */
         }
         h1 {
-            text-align: center;
-            font-size: 3.5vh; /* Responsive font size */
-            margin-bottom: 3vh; /* Responsive margin */
+            margin-top: 90px;
         }
-        p {
-            font-size: 2vh; /* Responsive font size */
-            margin: 2vh 0; /* Responsive margin */
+        button {
+            font-size: large;
+            border-radius: 25px;
+            padding: 10px 20px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.4);
+            border: none;
+            cursor: pointer;
         }
-
-        #bg {
-            position: absolute;
-            width: 100vw; /* Full width */
-            height: 100vh; /* Full height */
-            z-index: -1;
-            background-color: black;
+        button:hover {
+            background-color: rgba(0, 0, 0, 0.6);
         }
-
-        .footer {
-            margin-top: auto; /* Automatically adjusts margin */
-            text-align: center;
-            color: #ffffff;
-            padding: 2vh 0; /* Responsive padding */
-            position: relative;
-            bottom: 2vh; /* Adjusted distance from bottom */
+        .button2 {
+            font-size: large;
+            border-radius: 25px;
+            padding: 10px 20px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.4);
+            border: none;
+            cursor: pointer;
         }
-
+        .button2:hover {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
     </style>
 </head>
 <body>
-
-    <div id="bg"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="ball.js"></script>
     <header>
         <div>
-            <img src="logo.png" alt="Aaltoes Logo">
+            <a href="mainPage.html"><img src="logo.png" alt="Logo"></a>
         </div>
         <div class="navigation">
+            <a href="https://aaltoes2024.typeform.com/to/ks8CJ86H">
+                <button class="button1">get involved</button>
+            </a>
+            <a href="events.html">events</a>
             <a href="calendar.html">calendar</a>
-            <a href="library.html">library</a>
+            <a href="resources.html">resources</a>
+            <a href="https://medium.com/@aaltoes">blog</a>
         </div>
     </header>
-
-    <div class="container">
-        <h1>We are raising the next generation of founders by building exceptional companies</h1>
-        <p>We believe that everyone should be entrepreneurial. Why? Because our society can’t afford otherwise. However, this belief isn’t very original. It has been the same for 15 years, all the time that Aaltoes has existed. For context, around 2008, Finland’s economy was struggling and new innovation was more needed than ever. To have a place for ambitious and dedicated people with crazy ideas to come together, Aalto Entrepreneurship Society was born. Ever since, the people of Aaltoes have pushed the cruciality of solving world-changing problems through entrepreneurship in multiple programs and projects organized by driven students.</p>
+    <div class="main-content">
+        <div class="container">
+            <h1>We are raising the next generation of founders by building exceptional companies</h1>
+            <p>We believe that everyone should be entrepreneurial. Why? Because our society can’t afford otherwise. However, this belief isn’t very original. 
+                <span id="paragraph" style="display: none;">It has been the same for 15 years, all the time that Aaltoes has existed. For context, around 2008, Finland’s economy was struggling and new innovation was more needed than ever. To have a place for ambitious and dedicated people with crazy ideas to come together, Aalto Entrepreneurship Society was born. Ever since, the people of Aaltoes have pushed the cruciality of solving world-changing problems through entrepreneurship in multiple programs and projects organized by driven students.</span></p>
+            <button class="button2" onclick="revealText()">reveal more</button>
+            <button class="button3" onclick="hideText()" style="display: none;">hide</button>
+        </div>
+        <div class="content">
+            <div class="video-container">
+                <video autoplay muted loop>
+                    <source src="video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
     </div>
-    
-    <div class="footer">
-        <p>Puumiehenkuja 5 02150 OTANIEMI</p>
-        <p>email: board@aaltoes.com</p>
-    </div>
+    <footer>
+        <div>Puumiehenkuja 5, 02150 OTANIEMI</div>
+        <div>board@aaltoes.com</div>
+    </footer>
 
+    <script>
+        function revealText() {
+            document.getElementById("paragraph").style.display = "block";
+            document.querySelector('.button2:nth-of-type(1)').style.display = 'none';
+            document.querySelector('.button3:nth-of-type(2)').style.display = 'inline-block';
+        }
+
+        function hideText() {
+            document.getElementById("paragraph").style.display = "none";
+            document.querySelector('.button3:nth-of-type(2)').style.display = 'none';
+            document.querySelector('.button2:nth-of-type(1)').style.display = 'inline-block';
+        }
+    </script>
 </body>
 </html>
