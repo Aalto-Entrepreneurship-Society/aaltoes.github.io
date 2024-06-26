@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desktop Version</title>
+    <script>
+        function isMobile() {
+            // Ehtoja, jotka tarkistavat, onko laite mobiili
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        if (isMobile()) {
+            // Uudelleenohjaa mobiiliversioon
+            window.location.href = "mobile.html";
+        }
+        else
+            window.location.href = "mainPage.html";
+    </script>
+</head>
+</html>
