@@ -36,8 +36,16 @@
         .section-1 { 
             height: 100vh;
             justify-content: flex-end;
-            background: none;
-            z-index: 2;
+            position: relative;
+        }
+
+        .section-1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 30%;
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .section-2 { 
@@ -65,7 +73,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 73vh;
+            height: 100vh;
             overflow: hidden;
             z-index: -1;
         }
@@ -110,7 +118,6 @@
         }
 
         .navigation {
-            margin-top: 180px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -152,6 +159,7 @@
 
     <div id="section-2" class="section section-2">
         <div class="content">
+            <h1>Why Entrepreneurship?</h1>
             <p>We believe that everyone should be entrepreneurial. Why? Because our society can’t afford otherwise. However, this belief isn’t very original.
                 <span id="paragraph" style="display: none; color: #7D7D7D">Around 2008, Finland’s economy was struggling, and new innovation was needed more than ever. To create a space for ambitious and dedicated people with crazy ideas to come together, the Aalto Entrepreneurship Society was born. Ever since, the people of Aaltoes have emphasized the importance of solving world-changing problems through entrepreneurship, organizing multiple programs and projects driven by passionate students.</span></p>
             <button class="button2" onclick="revealText()">reveal more</button>
@@ -180,6 +188,8 @@
         const sections = document.querySelectorAll('.section');
         const totalSections = sections.length;
 
+        let startY = 0;
+
         function revealText() {
             document.getElementById("paragraph").style.display = "block";
             document.querySelector('.button2').style.display = 'none';
@@ -207,6 +217,29 @@
                     currentSection--;
                     scrollToSection(currentSection);
                 }
+            }
+        });
+
+        window.addEventListener('touchstart', (event) => {
+            startY = event.touches[0].clientY;
+        });
+
+        window.addEventListener('touchmove', (event) => {
+            let endY = event.touches[0].clientY;
+            if (startY > endY + 50) {
+                // Scrolling down
+                if (currentSection < totalSections - 1) {
+                    currentSection++;
+                    scrollToSection(currentSection);
+                }
+                startY = endY;
+            } else if (startY < endY - 50) {
+                // Scrolling up
+                if (currentSection > 0) {
+                    currentSection--;
+                    scrollToSection(currentSection);
+                }
+                startY = endY;
             }
         });
 
