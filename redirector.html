@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        function isMobile() {
+            // Check if the device is mobile
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        function redirectPage() {
+            const params = new URLSearchParams(window.location.search);
+            const page = params.get('page');
+
+            if (!page) {
+                window.location.href = "mainPage.html";
+                return;
+            }
+
+            if (isMobile()) {
+                // Redirect to the mobile version
+                window.location.href = page + "mobile.html";
+            } else {
+                // Redirect to the desktop version
+                window.location.href = page + ".html";
+            }
+        }
+
+        window.onload = redirectPage;
+    </script>
+</head>
+<body>
+    <p>If you are not redirected automatically, follow this <a id="redirectLink" href="mainPage.html">link</a>.</p>
+</body>
+</html>
