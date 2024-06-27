@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #222222;
+            color: #ffffff;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden; /* Estää sivuttaisen scrollauksen */
+        }
+        header {
+            background-color: #333333;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #ffffff;
+        }
+        header img {
+            height: 50px;
+            vertical-align: middle;
+        }
+        .navigation {
+            background-color: #333333;
+            text-align: center;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+        }
+        .navigation a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            overflow: hidden;
+            margin-bottom: 5vw;
+            padding-bottom: 50px;
+        }
+        h1, h2 {
+            margin-top: 50px;
+            font-size: 1rem;
+            font-family: 'Helvetica', Arial, sans-serif;
+        }
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 150%; /* Korkeampi padding kokoruudun levyiselle kartalle */
+            overflow: hidden;
+            margin: 50px 0;
+        }
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        footer {
+            margin-top: 100px;
+            text-align: center;
+            color: #ffffff;
+            padding: 2vh 0;
+            position: relative;
+            bottom: 2vh;
+            justify-content: space-between;
+        }
+        button {
+            font-size: 1rem;
+            padding: 10px 20px;
+            border: none;
+            background-color: #222;
+            color: white;
+            cursor: pointer;
+            border-radius: 25px;
+        }
+
+        button:hover {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .button1 {
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            background-color: #222;
+        }
+        footer a {
+
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .navigation {
+                flex-direction: column;
+            }
+            .navigation a {
+                margin: 5px 0;
+            }
+            .container {
+                width: 100%;
+                padding: 0 10px;
+            }
+            h1, h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <a href="mainPage.html"><img src="logo.png" alt="Logo"></a>
+        </div>
+        <div class="navigation">
+            <a href="https://aaltoes2024.typeform.com/to/ks8CJ86H">
+                <button class="button1">get involved</button>
+            <a href="events.html">events</a>
+            <a href="calendar.html">calendar</a>
+            <a href="resources.html">resources</a>
+            <a href="https://medium.com/@aaltoes">blog</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>space</h1>
+        <p>Startup Sauna is our open co-working space for founders. Doors are open Monday through Friday from 7:30 AM to 3:30 PM. We offer dedicated full-time founders personal workstations and meeting rooms available for reservation. For any questions, feel free to reach out to us anytime. Other entities in the Finnish startup ecosystem can be located on the map below.</p>
+        <div class="iframe-container">
+            <iframe src="https://www.google.com/maps/d/embed?mid=1qppBrNH8U7k1wdVr6Idy9kqUvX-KZO0&ehbc=2E312F" width="640" height="480"></iframe>
+        </div>
+        <h2>materials</h2>
+        <p>For new founders, we suggest diving into startup insights with Y Combinator’s Startup School and Startup Owner’s Manual for comprehensive guidance. The Mom Test offers a practical approach to customer research. We host bootcamps and programs like Betoni and Ignite where we boost founders in building their companies. Additionally, we've crafted a brief guide that explores the Finnish startup ecosystem and outlines various opportunities available to you. With this information you should handle basic rules so that you can later break them.</p>
+    </div>
+    <footer>
+        <a href="privacynotice.html">Privacy Notice</a>
+        <a href="contact.html">Contact</a>
+        <a href="associationrules.html">Association Rules</a>
+        <a href="billinginfo.html">Billing Info</a>
+        <a href="codeofconduct.html">Code of Conduct</a>
+    </footer>
+</body>
+</html>
