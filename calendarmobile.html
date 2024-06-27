@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Startup Sauna Events</title>
+    <style>
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #222;
+            color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+        header {
+            background-color: #333;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+        }
+        header img {
+            height: 50px;
+        }
+        .navigation {
+            background-color: #333;
+            text-align: center;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .navigation a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 40px;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+        .events {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 3vw 13vw;
+        }
+
+        .events img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)
+        }
+        .calendar {
+            margin: 10px 0;
+        }
+        .calendar iframe {
+            width: 100%;
+            height: 1000px;
+            border: none;
+        }
+        .container {
+            margin: 5%;
+        }
+        .event-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        .event-list ul li {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #333;
+            color: #000;
+        }
+
+        button {
+            font-size: large;
+            border-radius: 25px;
+            padding: 10px 20px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .navigation {
+                flex-direction: column;
+            }
+            .navigation a {
+                margin: 5px 0;
+            }
+            .container {
+                width: 100%;
+                padding: 0 10px;
+            }
+            h1, h2 {
+                font-size: 1.2rem;
+            }
+            p {
+                padding: 20px;
+            }
+            .events {
+                grid-template-columns: 1fr;
+                padding: 10px;
+            }
+            .events img {
+                width: 100%;
+                height: auto;
+            }
+            .calendar iframe {
+                height: calc(100vh - 20px); /* Make the calendar take the full viewport height minus some margin */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="mainpagemobile.html"><img src="logo.png" alt="Logo"></a>
+        <div class="navigation">
+            <a href="https://aaltoes2024.typeform.com/to/ks8CJ86H">
+                <button class="button1">get involved</button></a>
+            <a href="eventsmobile.html">events</a>
+            <a href="calendarmobile.html">calendar</a>
+            <a href="resourcesmobile.html">resources</a>
+            <a href="https://medium.com/@aaltoes">blog</a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="event-list">
+            <ul id="eventList"></ul>
+        </div>
+        <div class="calendar">
+            <iframe src="https://lu.ma/embed/calendar/cal-Dt7ZTA5Hc4gfnxp/events"></iframe>
+        </div>
+    </div>
+    <script>
+        async function fetchEvents() {
+            const response = await fetch('your-calendar-api-url');
+            const data = await response.json();
+            const eventList = document.getElementById('eventList');
+            data.events.forEach(event => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `<strong>${event.name}</strong><br>${event.date}<br>${event.description}`;
+                eventList.appendChild(listItem);
+            });
+        }
+        window.onload = fetchEvents;
+    </script>
+</body>
+</html>
